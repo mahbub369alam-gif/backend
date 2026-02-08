@@ -19,7 +19,7 @@ const httpServer = http.createServer(app);
 // ✅ Attach Socket.IO
 const io = new SocketIOServer(httpServer, {
   cors: {
-    origin: "*", // পরে production এ তোমার UI domain দিয়ে lock করবে
+    origin: "https://ui-rosy-rho.vercel.app", // পরে production এ তোমার UI domain দিয়ে lock করবে
     methods: ["GET", "POST"],
   },
 });
