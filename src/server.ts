@@ -67,7 +67,7 @@ io.use(async (socket, next) => {
   }
 });
 
-io.on("connection", (socket) => {
+io.on("connection", (socket: any) => {
   console.log("🟢 UI connected:", socket.id);
 
   // join rooms based on identity

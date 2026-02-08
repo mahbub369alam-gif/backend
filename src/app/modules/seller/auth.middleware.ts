@@ -14,7 +14,7 @@ export const requireAdminKey = (req: Request, res: Response, next: NextFunction)
     return res.status(401).json({ message: "Unauthorized (admin key)" });
   }
 
-  (req as AuthedRequest).user = { role: "admin", sellerId: "admin" };
+  (req as AuthedRequest).user = { id: "admin",  role: "admin", sellerId: "admin" };
   next();
 };
 
@@ -34,7 +34,7 @@ export const requireSellerAuth = (req: Request, res: Response, next: NextFunctio
       return res.status(401).json({ message: "Unauthorized (token invalid/expired)" });
     }
 
-    (req as AuthedRequest).user = { role: "seller", sellerId: String(sellerId) };
+    (req as AuthedRequest).user = { id: String(sellerId),  role: "seller", sellerId: String(sellerId) };
     next();
   } catch {
     return res.status(401).json({ message: "Unauthorized (token invalid/expired)" });
@@ -45,7 +45,7 @@ export const requireAdminOrSeller = (req: Request, res: Response, next: NextFunc
   // ✅ admin key থাকলে admin
   const key = req.headers["x-admin-key"];
   if (process.env.ADMIN_KEY && key && key === process.env.ADMIN_KEY) {
-    (req as AuthedRequest).user = { role: "admin", sellerId: "admin" };
+    (req as AuthedRequest).user = { id: "admin",  role: "admin", sellerId: "admin" };
     return next();
   }
   // ✅ না হলে seller token

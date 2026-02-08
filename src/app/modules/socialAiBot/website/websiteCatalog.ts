@@ -53,7 +53,7 @@ async function fetchHtml(url: string): Promise<string> {
 function parseJsonLdProducts($: cheerio.CheerioAPI): WebsiteProduct[] {
   const products: WebsiteProduct[] = [];
 
-  $('script[type="application/ld+json"]').each((_, el) => {
+  $('script[type="application/ld+json"]').each((_: number, el: any) => {
     const raw = $(el).text();
     if (!raw) return;
     try {
@@ -136,7 +136,7 @@ function parseDomHeuristics($: cheerio.CheerioAPI): WebsiteProduct[] {
   const seenText = new Set<string>();
 
   for (const sel of candidates) {
-    $(sel).each((_, el) => {
+    $(sel).each((_: number, el: any) => {
       const blockText = normalize($(el).text());
       if (!blockText || blockText.length < 20) return;
       if (seenText.has(blockText)) return;
