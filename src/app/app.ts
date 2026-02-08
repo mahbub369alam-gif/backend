@@ -41,7 +41,9 @@ app.use(
  */
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+  "http://localhost:3000",
+  "https://ui-rosy-rho.vercel.app"];
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     // x-admin-key is required for seller admin endpoints
     allowedHeaders: ["Content-Type", "Authorization", "x-admin-key"],
