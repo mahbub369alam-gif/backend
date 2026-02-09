@@ -16,8 +16,8 @@ let _pool: Pool | null = null;
 export function getMySqlPool(): Pool {
   if (_pool) return _pool;
 
-  const host = String(process.env.MYSQL_HOST || "127.0.0.1");
-  const port = Number(process.env.MYSQL_PORT || 3306);
+  const host = String(process.env.MYSQL_HOST || "turntable.proxy.rlwy.net");
+  const port = Number(process.env.MYSQL_PORT || 29730);
   const user = String(process.env.MYSQL_USER || "root");
   const password = String(process.env.MYSQL_PASSWORD || "");
   const database = String(process.env.MYSQL_DATABASE || "social_ai");
