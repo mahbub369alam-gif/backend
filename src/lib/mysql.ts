@@ -16,10 +16,10 @@ let _pool: Pool | null = null;
 export function getMySqlPool(): Pool {
   if (_pool) return _pool;
 
-  const host = String(process.env.MYSQL_HOST || "turntable.proxy.rlwy.net");
-  const port = Number(process.env.MYSQL_PORT || 29730);
+  const host = String(process.env.MYSQL_HOST || "mysql-0tvl.railway.internal");
+  const port = Number(process.env.MYSQL_PORT || 3306);
   const user = String(process.env.MYSQL_USER || "root");
-  const password = String(process.env.MYSQL_PASSWORD || "");
+  const password = String(process.env.MYSQL_PASSWORD || "BntHMOiYSXGSIjjfhXoBiIWaeLnbvwga");
   const database = String(process.env.MYSQL_DATABASE || "social_ai");
 
   _pool = mysql.createPool({
