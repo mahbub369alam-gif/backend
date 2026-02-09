@@ -20,7 +20,7 @@ export function getMySqlPool(): Pool {
   const port = Number(process.env.MYSQL_PORT || 29730);
   const user = String(process.env.MYSQL_USER || "root");
   const password = String(process.env.MYSQL_PASSWORD || "");
-  const database = String(process.env.MYSQL_DATABASE || "social_ai");
+  const database = String(process.env.MYSQL_DATABASE || "hi");
 
   _pool = mysql.createPool({
     host,
