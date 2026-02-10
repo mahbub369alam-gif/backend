@@ -389,7 +389,7 @@ const inviteSubAdmin = async (req: Request, res: Response) => {
     // Revoke any existing sessions (so disable/reset is immediate)
     await execResult("UPDATE sub_admins SET token_version = token_version + 1 WHERE id=?", [subId]);
 
-    const uiBase = String(process.env.PUBLIC_UI_BASE_URL || "http://localhost:3000").replace(/\/$/, "");
+    const uiBase = String(process.env.PUBLIC_UI_BASE_URL || "https://ui-rosy-rho.vercel.app").replace(/\/$/, "");
     const inviteLink = `${uiBase}/admin/accept-invite?token=${rawToken}`;
 
     await logAudit(req, { action: "SUB_ADMIN_INVITED", targetId: subId, targetEmail: e });
